@@ -1,0 +1,44 @@
+$base-font: "Times New Roman", serif;
+$accent-font: "Arial", sans-serif;
+
+
+html {
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.6rem; // relative to <html>
+}
+
+// All Headings
+#{headings()} {
+    font-family: $accent-font;
+    margin: 1em auto .25em auto;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.2em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p{
+	margin-bottom: 1em;
+}

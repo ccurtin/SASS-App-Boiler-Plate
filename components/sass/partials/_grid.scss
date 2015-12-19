@@ -1,0 +1,11 @@
+.site-wrapper {
+    max-width: $layout_width;
+    height: 100%; // important for footer to touch bottom if page content is short.
+    margin: 0 auto; // centered if box-layout.
+}
+
+@include sticky-footer($footer--height, ".layout", ".layout_footer", ".footer");
+
+.header {
+    height: $header--height;
+}

@@ -1,0 +1,26 @@
+// Compass
+@import "compass/reset"; // reset all HTML
+@import "compass/layout/sticky-footer";
+@import "compass/css3";
+@import "compass/typography";
+
+// jeet grid system
+@import "jeet/settings";
+@import "jeet/jeet";
+
+// helpers
+@import "partials/variables"; // global colors,
+@import "partials/functions";
+@import "partials/mixins";
+
+// layout
+@import "partials/grid";
+@import "partials/theme"; // general purpose
+@import "partials/header";
+@import "partials/footer";
+@import "partials/sidebar";
+
+@import "partials/navigation";
+@import "partials/typography";
+@import "partials/forms";
+@import "partials/buttons";

@@ -1,0 +1,20 @@
+{
+  "name": "SASS-App-Boiler-Plate",
+  "version": "0.0.1",
+  "description": "SASS/Gulp Boiler Plate. Includes Compass, Browser-Sync and Jeet.gs",
+  "author": "Christopher James Curtin",
+  "license": "ISC",
+  "devDependencies": {
+    "beepbeep": "^1.2.0",
+    "browser-sync": "^2.10.1",
+    "gulp": "^3.8.8",
+    "gulp-beautify": "^2.0.0",
+    "gulp-compass": "^2.0.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-uglify": "^1.5.1",
+    "gulp-uglifycss": "^1.0.5",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^1.0.5"
+  }
+}
