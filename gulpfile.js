@@ -91,9 +91,7 @@ gulp.task('sass-to-css', function() {
             sass: components + '/sass',
             image: components + '/images',            
             css: cssDir,
-            output_style: 'expanded',
-            line_comments: true,
-            sourcemap: true
+            config_file: 'compass.rb'
         }))
         .pipe(concat('styles.css'))
         .pipe(gulp.dest(cssDir))
