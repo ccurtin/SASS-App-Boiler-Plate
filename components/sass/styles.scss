@@ -9,12 +9,12 @@
 @import "jeet/jeet";
 
 // helpers
-@import "partials/variables"; // global colors,
+@import "partials/variables"; // global colors, site-widths, etc.
 @import "partials/functions";
 @import "partials/mixins";
 
-// layout
-@import "partials/grid";
+// main
+@import "partials/layout";
 @import "partials/theme"; // general purpose
 @import "partials/header";
 @import "partials/footer";
