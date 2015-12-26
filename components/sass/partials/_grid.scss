@@ -1,3 +1,6 @@
+.scroll-wrapper{
+	overflow-x:hidden;
+}
 .site-wrapper {
     max-width: $layout_width;
     height: 100%; // important for footer to touch bottom if page content is short.
