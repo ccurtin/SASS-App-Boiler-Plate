@@ -1,29 +1,42 @@
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 /*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    
     Plugins
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 */
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
     concat = require('gulp-concat'),
     compass = require('gulp-compass'),
-    // style injection/browser reload
+/*
+    style injection/browser reload
+*/
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     uglifycss = require('gulp-uglifycss'),
-    // throw errors w/o stopping watch tasks
+/*
+    throw errors w/o stopping watch tasks
+*/
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
     beep = require('beepbeep'), // notify user of error with beeps
-    // JS plugins
+/*
+    JS plugins
+*/
     uglify = require('gulp-uglify'),
     beautify = require('gulp-beautify')
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 /*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
     Project Variables
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 */
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-// Components Resources
+/*
+    Components Resources
+
+*/
 var components = './components/'
 var sassSources = [
     components + '/sass/*.scss',
@@ -33,55 +46,74 @@ var jsSources = [
     components + '/js/*.js',
     components + '/js/**/*.js',
 ];
-// App Resources
+/*
+    App Resources (compiled resources)
+*/
 var appDir = './app/';
 var appFiles = ['./app/*.*'];
 var cssDir = './app/css/';
 var cssMainStylesheet = './app/css/';
 var jsDir = './app/js/';
-///■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 /*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
     Error Handling
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 */
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-// SASS
+/*
+    SASS/CSS
+*/
 var onErrorStyles = function(err) {
     beep([300, 300, 300]);
     gutil.log(gutil.colors.magenta(err))
     this.emit('end');
 };
-// JavaScript
+/*
+    JavaScript
+*/
 var onErrorJS = function(err) {
     beep([100, 100]);
     gutil.log(gutil.colors.green(err))
     this.emit('end');
 };
-///■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 /*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    
     File Synchronization, Style Injection.
+    
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 */
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
             baseDir: "./app"
         }
-        // proxy: yoursite.local, // alternative to "server:{baseDir}" above
+        /*
+            alternative to "server:{baseDir}" above.
+         */
+        // proxy: yoursite.local,
         /*
             Will make app available outside of network on `staging-url.localtunnel.me`
         */
         // tunnel: true,
         // tunnel: "staging-url"
     });
-    gulp.watch(sassSources, ['sass-to-css']); // change to `css-uglify` to run `sass-to-css` then uglify CSS
-    gulp.watch(appFiles).on('change', browserSync.reload);
-    // gulp.watch(jsSources, ['js-uglify']); // or `js-beautify`.
+    /*
+        change to `css-uglify` to run `sass-to-css` then uglify CSS
+    */
+    gulp.watch(sassSources, ['sass-to-css']); 
+    gulp.watch(appFiles).on('change', reload);
+    // gulp.watch(jsSources), ['jsTasks']); 
 });
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
 /*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    
     Compile SASS
+    
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 */
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 gulp.task('sass-to-css', function() {
     return gulp.src(sassSources)
         .pipe(plumber({
@@ -107,11 +139,19 @@ gulp.task('css-uglify', ['sass-to-css'], function() {
         // .pipe(concat('styles.min.css')) // don't forget to update App Files with .min.css if using this
         .pipe(gulp.dest(cssDir))
 });
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 /*
-    Beautify or Uglify JS (uncomment JS watch method in `browser-sync` task to use these).
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    
+    Beautify or Uglify JS
+    (uncomment JS watch method in `browser-sync` task to use these).
+    
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 */
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+/*
+    use: 'js-beautify' || 'js-uglify'
+*/
+gulp.task('jsTasks', ['js-beautify'], reload );
+
 gulp.task('js-beautify', function() {
     return gulp.src(jsSources)
         .pipe(beautify())
@@ -128,10 +168,12 @@ gulp.task('js-uglify', function() {
         }))
         .pipe(gulp.dest(jsDir));
 });
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 /*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
     Default Task
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 */
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
 gulp.task('default', ['sass-to-css', 'browser-sync']);
