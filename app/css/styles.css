@@ -1,58 +1,37 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   font: inherit;
   font-size: 100%;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
 html {
-  line-height: 1;
-}
+  line-height: 1; }
 
 ol, ul {
-  list-style: none;
-}
+  list-style: none; }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-}
+  border-spacing: 0; }
 
 caption, th, td {
   text-align: left;
   font-weight: normal;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 q, blockquote {
-  quotes: none;
-}
+  quotes: none; }
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
-  content: none;
-}
+  content: none; }
 
 a img {
-  border: none;
-}
+  border: none; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
+  display: block; }
 
 /*
 	GRID
@@ -60,88 +39,103 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*
 	Colors
 */
-.site-wrapper {
-  max-width: 128rem;
-  height: 100%;
-  margin: 0 auto;
-}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
 
-html, body {
+.site-wrapper {
+  overflow-x: hidden;
+  background: #CCC;
+  max-width: 100%;
   height: 100%;
-}
+  margin: 0 auto; }
+
+.scroll-wrapper {
+  overflow-x: hidden;
+  height: 100%;
+  -webkit-overflow-scrolling: touch; }
+
+.layout-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  padding: 0;
+  padding-top: 10rem; }
 
 .layout {
+  padding-top: 2em;
+  overflow-x: hidden; }
+
+.layout-inner {
+  max-width: 128rem;
+  margin: 0 auto; }
+
+html, body {
+  height: 100%; }
+
+.layout-wrapper {
   clear: both;
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin-bottom: -10rem;
-}
-.layout .layout_footer {
-  height: 10rem;
-}
+  margin-bottom: -10rem; }
+.layout-wrapper .layout_footer {
+  height: 10rem; }
 
 .footer {
   clear: both;
   position: relative;
-  height: 10rem;
-}
-
-.header {
-  height: 10rem;
-}
+  height: 10rem; }
 
 .layout {
-  background: #CCC;
-}
+  background: #CCC; }
 
 .header {
   background: #EEE;
-}
+  margin: 0 auto;
+  margin-bottom: -10rem;
+  height: 10rem;
+  overflow: hidden;
+  position: relative; }
+.header h1 {
+  position: relative;
+  top: 0; }
 
 .footer {
-  background: #EEE;
-}
+  background: #EEE; }
 
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
-  font-size: 1.6rem;
-}
+  font-size: 1.6rem; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Arial", sans-serif;
-  margin: 1em auto .25em auto;
-}
+  margin: 0 auto .25em auto; }
 
 h1 {
-  font-size: 2em;
-}
+  font-size: 2em; }
 
 h2 {
-  font-size: 1.8em;
-}
+  font-size: 1.8em; }
 
 h3 {
-  font-size: 1.6em;
-}
+  font-size: 1.6em; }
 
 h4 {
-  font-size: 1.4em;
-}
+  font-size: 1.4em; }
 
 h5 {
-  font-size: 1.2em;
-}
+  font-size: 1.2em; }
 
 h6 {
-  font-size: 1em;
-}
+  font-size: 1em; }
 
 p {
-  margin-bottom: 1em;
-}
+  margin-bottom: 1em; }
 
 /*# sourceMappingURL=styles.css.map */

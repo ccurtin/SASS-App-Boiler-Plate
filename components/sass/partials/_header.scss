@@ -1,3 +1,12 @@
 .header {
     background: $header--bg;
+    margin: 0 auto;
+    margin-bottom:-($header--height); // for sticky footer.
+    height: $header--height;
+    overflow: hidden;
+    position: relative;
+    h1 {
+        position: relative;
+        top: 0;
+    }
 }

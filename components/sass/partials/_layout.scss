@@ -1,14 +1,47 @@
-.scroll-wrapper{
-	overflow-x:hidden;
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
+/*
+	START:::: needed for proper base sticky-footer
+	+ better to extend the following, rather than edit directly.
+*/
 .site-wrapper {
-    max-width: $layout_width;
+    overflow-x: hidden;
+    background: $base-color;
+    max-width: 100%;
     height: 100%; // important for footer to touch bottom if page content is short.
     margin: 0 auto; // centered if box-layout.
 }
 
-@include sticky-footer($footer--height, ".layout", ".layout_footer", ".footer");
-
-.header {
-    height: $header--height;
+.scroll-wrapper {
+    overflow-x: hidden;
+    height: 100%;
+    -webkit-overflow-scrolling: touch; // ensure smooth scrolling on iOS
 }
+
+.layout-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    padding: 0;
+    padding-top: $header--height;
+}
+
+.layout {
+    padding-top: 2em;
+    overflow-x: hidden;
+}
+
+.layout-inner {
+    max-width: $layout-width;
+    margin: 0 auto;
+}
+
+@include sticky-footer($footer--height, ".layout-wrapper", ".layout_footer", ".footer");
+/*
+	END::: needed for proper base sticky-footer
+*/
