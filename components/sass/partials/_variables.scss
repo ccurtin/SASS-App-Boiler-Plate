@@ -2,14 +2,22 @@
 	GRID
 */
 $layout_width: 128rem; // 100% for full-width
-$header--height: 10rem;
-$footer--height: 10rem;
+$header--height: 13.25rem;
+$footer--height: 6rem;
 
+
+/*
+	FONTS
+*/
+$base-font: "Raleway", "Helvetica", "Arial" sans-serif;
+$accent-font: sans-serif;
 /*
 	Colors
 */
-$base-color:#CCC;
+$base-color: #3BA2E0;
+$accent-color: #D8494A;
+$accent-color2: lightyellow;
 
-$header--bg: #EEE;
-$footer--bg: #EEE;
-$layout--bg: #CCC;
+$header--bg: darken($base-color,12);
+$footer--bg: $header--bg;
+$layout--bg: transparent;
