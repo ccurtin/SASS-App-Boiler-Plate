@@ -1,0 +1,78 @@
+/*==============================================
+
+	NAVIGATION
+
+==============================================*/
+
+/*
+------------------------------
+
+	HEADER STYLES
+
+------------------------------
+*/
+.nav--header {
+    ul {
+        max-width: 128rem;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+/*
+..............................
+
+	list-items
+
+..............................
+*/
+.nav--header ul li {
+    a {
+        color: #FFF;
+        text-decoration: none;
+        font-size: 1.25em;
+        padding: .5em;
+        margin: 0 2em;
+        font-weight: 400;
+        font-family: raleway;
+    }
+}
+
+.nav--header {
+    width: 100%;
+    @include j-align(vertical center);
+}
+
+/*
+..............................
+
+	hover styles
+
+..............................
+*/
+
+.nav--header ul li a {
+    &:hover {
+        color: $base-color;
+        text-shadow: 0 1px 0 #666;
+    }
+
+    &:active {
+        color: darken($base-color, 20);
+        text-shadow: none;
+    }
+}
+
+/**********************
+
+	#FOOTER STYLES
+
+**********************/
+.footer--content {
+    @include j-align(vertical center);
+}
